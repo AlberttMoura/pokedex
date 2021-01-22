@@ -35,6 +35,8 @@ export default {
     justify-content: center;
     text-align: center;
     min-height: 16rem;
+    width: 100%;
+    height: 100%;
 }
 
 .search-bar {
@@ -42,19 +44,21 @@ export default {
   font-size: 3rem;
   border: 0px;
   width: 100%;
+  height: 30%;
   border-radius: 20px;
-  margin-top: 5rem;
-  margin-bottom: 5vh;
+  margin-top: 10%;
+  margin-bottom: 5%;
 }
 
 .search-button {
-    width: 20%;
+    width: 15%;
     border-radius: 10px;
     border: 0px;
     background-color: #58B863;
-    height: 2rem;
+    height: 12%;
     color: #fff;
     font-weight: 500;
+    font-size: 110%;
 }
 
 </style>

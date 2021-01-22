@@ -40,7 +40,7 @@ export default {
 }
 
 #logo-text{
-    font-size: 300%;
+    font-size: min(300%, 4vw);
     font-weight: 100;
     text-decoration: none;
     color: #fff;
