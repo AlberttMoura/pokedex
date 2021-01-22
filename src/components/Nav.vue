@@ -18,8 +18,8 @@ export default {
     display: flexbox;
     background-color: #FF2F2F;
     grid-area: h;
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
     text-align: center;
     justify-items: center;
     align-items: center;
@@ -27,15 +27,20 @@ export default {
 }
 
 #logo-image {
-    width: 10vh;
+    height: 70%;
 }
 
 .logo-side {
     display: flexbox;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
 }
 
 #logo-text{
-    font-size: 5vh;
+    font-size: 300%;
     font-weight: 100;
     text-decoration: none;
     color: #fff;

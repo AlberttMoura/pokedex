@@ -39,7 +39,7 @@ export default {
   },
 
   created: function() {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=978&offset=0").then(res => {
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0").then(res => {
       this.pokemons = res.data.results
     })
   },
@@ -71,6 +71,8 @@ export default {
                        ". s s s ."
                        ". c c c ."
                        "f f f f f";
+  width: 100%;
+  height: 100%;
 }
 
 .content {
@@ -79,16 +81,15 @@ export default {
   grid-column: "1fr 1fr 1fr";
   grid-row: "10% 10% 10%";
   grid-template-areas: "x x x";
+  width: 100%;
+  height: 100%;
 }
-
-.header {
-  grid-area: h;
-}
-
 .poke {
   width: auto;
   justify-self: center;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  padding: 3%;
 }
 </style>

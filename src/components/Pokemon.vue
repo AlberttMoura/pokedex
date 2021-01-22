@@ -55,7 +55,8 @@ export default {
     justify-content: center;
     text-align: center;
     background-color: #B4B4B4;
-    margin: 3%;
     border-radius: 7%;
+    width: 100%;
+    height: 100%;
 }
 </style>
