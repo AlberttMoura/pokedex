@@ -1,10 +1,10 @@
 <template>
   <div class="app">
     <Nav/>
-    <input class="search" type="text" placeholder="Buscar Pokemon" v-model="busca">
+    <Search @buscar="pesquisarPokemon($event)"/>
     <div class="content">
-      <div class="poke" v-for="(poke, index) in pokemons" :key="index">
-        <Pokemon :id="index + 1" :nome="poke.name" :url="poke.url"/>
+      <div class="poke" v-for="poke in resultadoBusca" :key="poke.url">
+        <Pokemon :nome="poke.name" :url="poke.url"/>
       </div>
     </div>
   </div>
@@ -14,6 +14,7 @@
 import axios from 'axios'
 import Pokemon from "./components/Pokemon"
 import Nav from "./components/Nav"
+import Search from "./components/Search"
 
 
 export default {
@@ -22,19 +23,35 @@ export default {
   data() {
     return {
       pokemons: [],
-      busca: '',
+      busca: "",
     }
   },
 
   components: {
     Pokemon,
     Nav,
+    Search,
+  },
+  methods: {
+    pesquisarPokemon: function($event) {
+      this.busca = $event.busca
+    }
   },
 
   created: function() {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0").then(res => {
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=978&offset=0").then(res => {
       this.pokemons = res.data.results
     })
+  },
+  computed: {
+    resultadoBusca: function() {
+      if(this.busca == "" || this.busca == " "){
+        return this.pokemons
+      }
+      else{
+        return this.pokemons.filter(pokemon => pokemon.name.includes(this.busca.toLowerCase()))
+      }
+    }
   }
 }
 </script>
@@ -49,7 +66,7 @@ export default {
 .app {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 15vh 30vh auto 10vh;
+  grid-template-rows: 15vh auto auto 10vh;
   grid-template-areas: "h h h h h"
                        ". s s s ."
                        ". c c c ."
@@ -66,16 +83,6 @@ export default {
 
 .header {
   grid-area: h;
-}
-
-.search {
-  grid-area: s;
-  text-align: center;
-  font-size: 3rem;
-  margin-top: 15vh;
-  margin-bottom: 5vh;
-  border-radius: 20px;
-  border: 0px;
 }
 
 .poke {

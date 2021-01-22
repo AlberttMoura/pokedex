@@ -20,6 +20,7 @@ export default {
                 this.pokemon.types.push(res.data.types[idx].type.name)
             }
             this.pokemon.img = res.data.sprites.front_default
+            this.id = res.data.id
         })        
     },
 
@@ -28,13 +29,13 @@ export default {
             pokemon: {
                 types: [],
                 img: String,
+                id: Number,
             }
         }
     },
 
     props:  {
         nome: String,
-        id: Number,
         url: String,
     },
 
