@@ -1,9 +1,7 @@
 <template>
   <div class="nav">
-      <div class="logo-side">
-        <a href=""><img id="logo-image" src="../assets/pokedexlogo.png" alt=""></a>
-        <a id="logo-text" href="">The Pokedex Project</a>
-      </div>
+    <img id="logo-image" src="../assets/pokedexlogo.png" alt="">
+    <a id="logo-text" href="">The Pokedex Project</a>
   </div>
 </template>
 
@@ -23,7 +21,7 @@ export default {
     text-align: center;
     justify-items: center;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 #logo-image {
@@ -40,7 +38,7 @@ export default {
 }
 
 #logo-text{
-    font-size: min(300%, 4vw);
+    font-size: max(200%, 4vw);
     font-weight: 100;
     text-decoration: none;
     color: #fff;

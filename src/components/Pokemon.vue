@@ -1,9 +1,9 @@
 <template>
   <div class="pokemon">
     <img :src="pokemon.img">
-    <div>
+    <div id="card">
         <h5>{{ capitalName }} </h5>
-        <small>#{{ id }}</small>
+        <small>#{{ pokemon.id }}</small>
         <p>{{ pokemon.types[0] }} {{pokemon.types[1] }}</p>
     </div>
   </div>
@@ -20,7 +20,7 @@ export default {
                 this.pokemon.types.push(res.data.types[idx].type.name)
             }
             this.pokemon.img = res.data.sprites.front_default
-            this.id = res.data.id
+            this.pokemon.id = res.data.id
         })        
     },
 
@@ -58,5 +58,15 @@ export default {
     border-radius: 7%;
     width: 100%;
     height: 100%;
+
 }
+
+#card h5{
+    font-size: 80%;
+}
+
+#card p {
+    font-size: 70%;
+}
+
 </style>

@@ -39,7 +39,7 @@ export default {
   },
 
   created: function() {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0").then(res => {
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=978&offset=0").then(res => {
       this.pokemons = res.data.results
     })
   },
@@ -65,12 +65,12 @@ export default {
 
 .app {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 15vh auto auto 10vh;
-  grid-template-areas: "h h h h h"
-                       ". s s s ."
-                       ". c c c ."
-                       "f f f f f";
+  grid-template-areas: "h h h h h h h"
+                       ". s s s s s ."
+                       ". c c c c c ."
+                       "f f f f f f f";
   width: 100%;
   height: 100%;
 }
@@ -85,7 +85,6 @@ export default {
   height: 100%;
 }
 .poke {
-  width: auto;
   justify-self: center;
   width: 100%;
   height: 100%;

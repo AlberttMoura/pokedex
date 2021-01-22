@@ -34,24 +34,25 @@ export default {
     grid-area: s;
     justify-content: center;
     text-align: center;
-    min-height: 16rem;
+    min-height: max(14rem, 30vh);
     width: 100%;
     height: 100%;
+    margin-bottom: 4%;
 }
 
 .search-bar {
   text-align: center;
-  font-size: 3rem;
   border: 0px;
   width: 100%;
   height: 30%;
   border-radius: 20px;
-  margin-top: 10%;
-  margin-bottom: 5%;
+  margin-top: max(11vh, 6%);
+  font-size: 200%;
+  margin-bottom: max(5vh, 6%);
 }
 
 .search-button {
-    width: 15%;
+    width: max(15%, 15vw);
     border-radius: 10px;
     border: 0px;
     background-color: #58B863;
@@ -59,6 +60,7 @@ export default {
     color: #fff;
     font-weight: 500;
     font-size: 110%;
+    outline: none;
 }
 
 </style>
