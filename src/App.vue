@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
+
+  data() {
+    return {
+      pokemons: []
+    }
+  },
+
   components: {
-    HelloWorld
+
+  },
+
+  created: function() {
+    console.log(axios)
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0").then(res => {
+      this.pokemons = res.data.results
+    })
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+  padding: 0;
+  margin: 0;
 }
 </style>
