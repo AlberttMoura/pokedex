@@ -7,6 +7,9 @@
         <Pokemon :nome="poke.name" :url="poke.url"/>
       </div>
     </div>
+    <div id="showmore">
+      <input @click="mostrarMais" type="button" value="Mostrar Mais">
+    </div>
   </div>
 </template>
 
@@ -23,7 +26,13 @@ export default {
   data() {
     return {
       pokemons: [],
+      pokelist: [],
+      pokemonsAll: [],
       busca: "",
+      initial: 0,
+      range: 18,
+      pokeCache: [],
+      maxPoke: 988,
     }
   },
 
@@ -35,22 +44,52 @@ export default {
   methods: {
     pesquisarPokemon: function($event) {
       this.busca = $event.busca
+    },
+
+    mostrarMais: function() {
+      if(this.range != 0){
+        this.initial += this.range
+        this.initial + this.range <= this.maxPoke ? this.range = 18 : this.range = this.maxPoke - this.initial
+        
+        this.getPokemons()
+        
+      }
+    },
+
+    getPokemons: function() {
+      for(let i = this.initial; i < this.initial + this.range; i++) {
+        this.pokeCache.push({"name": this.pokemonsAll[i].name, "url": this.pokemonsAll[i].url})
+        //console.log(this.pokemonsAll[i].name)
+        //console.log(i)
+      }
+    },
+    loadAllPokemons: function() {
+      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${this.maxPoke}&offset=${this.initial}`).then(res => {
+        let temp = res.data.results
+        for(let poke in temp){
+          this.pokemonsAll.push({"name": temp[poke].name, "url": temp[poke].url})
+        }
+        this.getPokemons()
+      })
+    },
+    makePokeList: function() {
+      if(this.busca == "" || this.busca == " "){
+        this.pokelist = this.pokeCache
+      }
+      else{
+        this.pokelist = this.pokemonsAll.filter(pokemon => pokemon.name.includes(this.busca.toLowerCase()))
+      }
+      return this.pokelist
     }
   },
 
   created: function() {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=978&offset=0").then(res => {
-      this.pokemons = res.data.results
-    })
+    this.loadAllPokemons()
+    
   },
   computed: {
     resultadoBusca: function() {
-      if(this.busca == "" || this.busca == " "){
-        return this.pokemons
-      }
-      else{
-        return this.pokemons.filter(pokemon => pokemon.name.includes(this.busca.toLowerCase()))
-      }
+      return this.makePokeList()
     }
   }
 }
@@ -66,23 +105,26 @@ export default {
 .app {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 15vh auto auto 10vh;
+  grid-template-rows: max(10vh, 100px) auto auto 10vh;
   grid-template-areas: "h h h h h h h"
                        ". s s s s s ."
-                       ". c c c c c ."
+                       "c c c c c c c"
+                       ". m m m m m ."
                        "f f f f f f f";
   width: 100%;
   height: 100%;
+  margin-bottom: min(20%, 10vh);
+  
 }
 
 .content {
   grid-area: c;
   display: grid;
-  grid-column: "1fr 1fr 1fr";
-  grid-row: "10% 10% 10%";
   grid-template-areas: "x x x";
   width: 100%;
   height: 100%;
+  padding-right: 3%;
+  padding-left: 3%;
 }
 .poke {
   justify-self: center;
@@ -91,4 +133,23 @@ export default {
   box-sizing: border-box;
   padding: 3%;
 }
+
+#showmore {
+  padding-top: min(15%, 7vh);
+  grid-area: m;
+  text-align: center;
+}
+
+#showmore input {
+  border: 0px;
+  background-color: #58B863;
+  border-radius: 10px;
+  height: min(2.5rem, 40px);
+  font-weight: 500;
+  width: min(150px, 25vw);
+  font-size: 100%;
+  color: #fff;
+  outline: none;
+}
+
 </style>

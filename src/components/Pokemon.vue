@@ -54,7 +54,7 @@ export default {
     justify-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #B4B4B4;
+    background-color: #C8C8C8;
     border-radius: 7%;
     width: 100%;
     height: 100%;

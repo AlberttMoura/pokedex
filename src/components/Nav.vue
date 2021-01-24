@@ -25,20 +25,11 @@ export default {
 }
 
 #logo-image {
-    height: 70%;
-}
-
-.logo-side {
-    display: flexbox;
-    text-align: center;
-    align-items: center;
-    align-self: center;
-    width: 100%;
-    height: 100%;
+    height: min(70%, 14vw);
 }
 
 #logo-text{
-    font-size: max(200%, 4vw);
+    font-size: min(300%, 9vw);
     font-weight: 100;
     text-decoration: none;
     color: #fff;
