@@ -41,7 +41,6 @@ export default {
     padding-bottom: 3%;
     display: flex;
     border-bottom: #494949 10px solid;
-    box-sizing: border-box;
 }
 
 .search-bar {

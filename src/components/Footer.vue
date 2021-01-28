@@ -32,11 +32,11 @@ export default {
 
 .right {
     align-self: center;
-    font-size: max(90%, 2vh);
+    font-size: max(90%, 2vw);
 }
 
 .left {
     align-self: center;
-    font-size: max(90%, 2vh);
+    font-size: max(90%, 2vw);
 }
 </style>

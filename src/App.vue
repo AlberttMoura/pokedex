@@ -108,7 +108,7 @@ export default {
 .app {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: max(10vh, 80px) max(12vh, 80px) auto max(8vh, 70px) max(8vh, 50px);
+  grid-template-rows: max(10vh, 80px) max(14vh, 95px) auto max(8vh, 70px) max(8vh, 50px);
   grid-template-areas: "h h h h h h h h h"
                        "s s s s s s s s s"
                        ". c c c c c c c ."
