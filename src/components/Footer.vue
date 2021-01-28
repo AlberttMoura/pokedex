@@ -28,6 +28,7 @@ export default {
     margin: 0;
     padding-right: 2%;
     padding-left: 2%;
+    position: relative;
 }
 
 .right {

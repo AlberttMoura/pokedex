@@ -118,6 +118,7 @@ export default {
   height: 100%;
   background-image: url('./assets/background.png');
   background-repeat: repeat-y;
+  min-height: 100vh;
   
 }
 
