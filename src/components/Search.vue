@@ -1,7 +1,7 @@
 <template>
   <div class="search">
       <input class="search-bar" type="text" placeholder="Buscar Pokemon" v-model="busca"><br>
-      <input @click="buscarPokemon" class="search-button" type="button" value="Buscar">
+      <input @click="buscarPokemon" class="search-button" type="button">
   </div>
 </template>
 
@@ -34,34 +34,37 @@ export default {
     grid-area: s;
     justify-content: center;
     text-align: center;
-    min-height: min(14rem, 30vh);
     width: 100%;
     height: 100%;
-    margin-bottom: 4%;
+    background-color: #303030;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: flex;
+    border-bottom: #494949 10px solid;
+    box-sizing: border-box;
 }
 
 .search-bar {
   text-align: center;
-  border: 0px;
-  width: 80%;
-  height: 20%;
-  border-radius: 20px;
-  margin-top: max(11vh, 6%);
+  border: 3px #616161 solid;
+  border-radius: 5px;
   font-size: 150%;
-  margin-bottom: max(5vh, 6%);
   outline: none;
+  width: 60%;
+  height: 48px;
+  align-self: center;
+  margin-right: 2%;
 }
 
 .search-button {
-    width: min(20%, 15vw);
-    border-radius: 10px;
-    border: 0px;
-    background-color: #58B863;
-    height: min(14%, 10vh);
-    color: #fff;
-    font-weight: 500;
-    font-size: 100%;
+    border-radius: 100%;
+    text-align: center;
+    border: 0;
+    height: 48px;
+    width: 48px;
+    background-image: url('../assets/searchicon.png');
     outline: none;
+    align-self: center;
 }
 
 </style>

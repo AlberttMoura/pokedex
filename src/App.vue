@@ -10,6 +10,7 @@
     <div id="showmore">
       <input @click="mostrarMais" type="button" value="Mostrar Mais">
     </div>
+    <Footer/>
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import axios from 'axios'
 import Pokemon from "./components/Pokemon"
 import Nav from "./components/Nav"
 import Search from "./components/Search"
+import Footer from "./components/Footer"
 
 
 export default {
@@ -40,6 +42,7 @@ export default {
     Pokemon,
     Nav,
     Search,
+    Footer,
   },
   methods: {
     pesquisarPokemon: function($event) {
@@ -104,27 +107,28 @@ export default {
 
 .app {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: max(10vh, 100px) auto auto 10vh;
-  grid-template-areas: "h h h h h h h"
-                       ". s s s s s ."
-                       "c c c c c c c"
-                       ". m m m m m ."
-                       "f f f f f f f";
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: max(10vh, 80px) max(12vh, 80px) auto max(8vh, 70px) max(8vh, 50px);
+  grid-template-areas: "h h h h h h h h h"
+                       "s s s s s s s s s"
+                       ". c c c c c c c ."
+                       ". m m m m m m m ."
+                       "f f f f f f f f f";
   width: 100%;
   height: 100%;
-  margin-bottom: min(20%, 10vh);
+  background-image: url('./assets/background.png');
+  background-repeat: repeat-y;
   
 }
 
 .content {
+  padding-top: min(20%, 50px);
   grid-area: c;
   display: grid;
   grid-template-areas: "x x x";
   width: 100%;
   height: 100%;
-  padding-right: 3%;
-  padding-left: 3%;
+  background-color: #fff;
 }
 .poke {
   justify-self: center;
@@ -135,21 +139,28 @@ export default {
 }
 
 #showmore {
-  padding-top: min(15%, 7vh);
   grid-area: m;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
   text-align: center;
+  display: flexbox;
+  display: flex;
+  align-items: center;
 }
 
 #showmore input {
   border: 0px;
   background-color: #58B863;
-  border-radius: 10px;
-  height: min(2.5rem, 40px);
+  border-radius: 3px;
+  height: max(4vh,48px);
   font-weight: 500;
   width: min(150px, 25vw);
   font-size: 100%;
   color: #fff;
   outline: none;
+  margin: auto;
+  align-self: center;
 }
 
 </style>

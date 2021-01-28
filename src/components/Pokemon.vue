@@ -1,6 +1,8 @@
 <template>
   <div class="pokemon">
-    <img :src="pokemon.img">
+    <div class="card-img">
+        <img :src="pokemon.img">
+    </div>
     <div id="card">
         <h5>{{ capitalName }} </h5>
         <small>#{{ pokemon.id }}</small>
@@ -54,11 +56,15 @@ export default {
     justify-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #C8C8C8;
-    border-radius: 7%;
+    border-radius: 3px;
     width: 100%;
     height: 100%;
+    background-color: #f3f3f3
 
+}
+
+.card-img {
+    background-color: #E4E4E4;
 }
 
 #card h5{
